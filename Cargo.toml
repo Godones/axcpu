@@ -29,18 +29,20 @@ uspace = []
 arm-el2 = []
 
 [dependencies]
+cfg-if = "1.0"
 linkme = "0.3"
 log = "0.4"
-cfg-if = "1.0"
 memory_addr = "0.4"
 page_table_entry = "0.6"
-static_assertions = "1.1.0"
 
 [target.'cfg(target_arch = "x86_64")'.dependencies]
-x86 = "0.52"
-x86_64 = "0.15.2"
-percpu = "0.2"
 lazyinit = "0.2"
+percpu = "0.3"
+spin = "0.10"
+x86 = "0.52"
+x86_64 = { version = "0.15", default-features = false, features = [
+    "instructions",
+] }
 
 [target.'cfg(target_arch = "aarch64")'.dependencies]
 aarch64-cpu = "11.2"
@@ -58,4 +60,9 @@ new_without_default = "allow"
 
 [package.metadata.docs.rs]
 all-features = true
-targets = ["x86_64-unknown-none", "aarch64-unknown-none-softfloat", "riscv64gc-unknown-none-elf", "loongarch64-unknown-none-softfloat"]
+targets = [
+    "x86_64-unknown-none",
+    "aarch64-unknown-none-softfloat",
+    "riscv64gc-unknown-none-elf",
+    "loongarch64-unknown-none-softfloat",
+]
