@@ -9,7 +9,7 @@
 /// # Notes
 /// Before calling this function, the initialization function of the [`percpu`]
 /// crate should have been invoked to ensure that the per-CPU data structures
-/// are set up correctly (i.e., by calling [`init_percpu`]).
+/// are set up correctly.
 ///
 /// [`percpu`]: https://docs.rs/percpu/latest/percpu/index.html
 pub fn init_trap() {
